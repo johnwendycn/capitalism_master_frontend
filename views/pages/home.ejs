@@ -1,0 +1,2100 @@
+<div id="rs-slider" class="slider-overlay-2">
+    <div id="home-slider-fallback" style="position: relative; width: 100%; margin: 0 auto;">
+        <div class="slider-container" style="position: relative; width: 100%; height: 620px; overflow: hidden; background: #000;">
+            <div class="slider-track" style="display: flex; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); height: 100%; width: 100%;">
+                <div class="slider-slide" style="min-width: 100%; width: 100%; height: 620px; position: relative; flex-shrink: 0; background: #000;">
+                    <!-- Background blur layer for professional effect -->
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+                        <img src="/img/2.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: blur(20px); transform: scale(1.1);">
+                    </div>
+                    <!-- Main image - shows completely without cropping -->
+                    <img src="/img/2.jpg" alt="Slide 1" style="position: relative; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; z-index: 1;">
+                    <div class="slide-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                       
+                    </div>
+                </div>
+                <div class="slider-slide" style="min-width: 100%; width: 100%; height: 620px; position: relative; flex-shrink: 0; background: #000;">
+                    <!-- Background blur layer for professional effect -->
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+                        <img src="/img/4.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: blur(20px); transform: scale(1.1);">
+                    </div>
+                    <!-- Main image - shows completely without cropping -->
+                    <img src="/img/4.jpg" alt="Slide 2" style="position: relative; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; z-index: 1;">
+                    <div class="slide-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%); display: flex; align-items: center; justify-content: center; z-index: 2;">
+                      
+                    </div>
+                </div>
+            </div>
+            <button class="slider-prev" style="position: absolute; left: 30px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 20; font-size: 28px; transition: all 0.3s; display: flex; align-items: center; justify-content: center;">‹</button>
+            <button class="slider-next" style="position: absolute; right: 30px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; z-index: 20; font-size: 28px; transition: all 0.3s; display: flex; align-items: center; justify-content: center;">›</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Keyframe animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Full width on any device */
+    #rs-slider {
+        width: 100%;
+        position: relative;
+        background: #000;
+    }
+    
+    #home-slider-fallback {
+        width: 100%;
+        margin: 0 auto;
+        background: #000;
+    }
+    
+    .slider-container {
+        width: 100% !important;
+        height: 620px !important;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .slider-track {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .slider-slide {
+        width: 100% !important;
+        min-width: 100% !important;
+        height: 620px !important;
+        position: relative;
+    }
+    
+    /* Navigation buttons hover effect */
+    .slider-prev:hover, .slider-next:hover {
+        background: #007bff !important;
+        transform: translateY(-50%) scale(1.1);
+    }
+    
+    /* Dots indicator styling */
+    .slider-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 20;
+    }
+    
+    .slider-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .slider-dot:hover {
+        background: rgba(255,255,255,0.8);
+        transform: scale(1.2);
+    }
+    
+    .slider-dot.active {
+        background: #007bff;
+        width: 25px;
+        border-radius: 10px;
+    }
+    
+    /* Responsive heights for different devices */
+    @media (max-width: 1200px) {
+        .slider-container, .slider-slide {
+            height: 520px !important;
+        }
+        .slide-content a { padding: 12px 30px !important; font-size: 15px !important; }
+    }
+    
+    @media (max-width: 992px) {
+        .slider-container, .slider-slide {
+            height: 450px !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .slider-container, .slider-slide {
+            height: 350px !important;
+        }
+        .slide-content a { padding: 10px 25px !important; font-size: 14px !important; }
+        .slider-prev, .slider-next {
+            width: 35px !important;
+            height: 35px !important;
+            font-size: 20px !important;
+            left: 15px !important;
+            right: 15px !important;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .slider-container, .slider-slide {
+            height: 280px !important;
+        }
+        .slide-content a { padding: 8px 20px !important; font-size: 12px !important; }
+    }
+    
+    @media (max-width: 480px) {
+        .slider-container, .slider-slide {
+            height: 250px !important;
+        }
+        .slider-prev, .slider-next {
+            width: 30px !important;
+            height: 30px !important;
+            font-size: 16px !important;
+        }
+    }
+</style>
+
+<script>
+// Professional slider - Complete image visibility with blur background effect
+(function() {
+    'use strict';
+    
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slider-slide');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let currentIndex = 0;
+    let interval;
+    let isTransitioning = false;
+    let autoplayEnabled = true;
+    
+    console.log('✓ Slider initialized with', slides.length, 'slides - Complete image visibility mode');
+    
+    if (slides.length === 0) {
+        console.error('✗ No slides found!');
+        return;
+    }
+    
+    function updateSlider() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600);
+    }
+    
+    function nextSlide() {
+        if (isTransitioning || !autoplayEnabled) return;
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlider();
+        resetInterval();
+    }
+    
+    function prevSlide() {
+        if (isTransitioning) return;
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlider();
+        resetInterval();
+    }
+    
+    function resetInterval() {
+        if (interval) clearInterval(interval);
+        if (autoplayEnabled) {
+            interval = setInterval(nextSlide, 5000);
+        }
+    }
+    
+    function createDots() {
+        const existingDots = document.querySelector('.slider-dots');
+        if (existingDots) existingDots.remove();
+        
+        const dotsContainer = document.createElement('div');
+        dotsContainer.className = 'slider-dots';
+        
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'slider-dot';
+            dot.setAttribute('data-index', i);
+            dot.addEventListener('click', function() {
+                if (isTransitioning) return;
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                updateSlider();
+                resetInterval();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        
+        const container = document.querySelector('.slider-container');
+        if (container) {
+            container.appendChild(dotsContainer);
+        }
+        return dotsContainer.children;
+    }
+    
+    function updateDots() {
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    if (prevBtn && nextBtn && slides.length > 0) {
+        const newPrevBtn = prevBtn.cloneNode(true);
+        const newNextBtn = nextBtn.cloneNode(true);
+        prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+        nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+        
+        const finalPrevBtn = document.querySelector('.slider-prev');
+        const finalNextBtn = document.querySelector('.slider-next');
+        
+        finalPrevBtn.addEventListener('click', prevSlide);
+        finalNextBtn.addEventListener('click', nextSlide);
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        const slider = document.querySelector('.slider-container');
+        if (slider) {
+            slider.addEventListener('mouseenter', () => {
+                autoplayEnabled = false;
+                if (interval) clearInterval(interval);
+            });
+            
+            slider.addEventListener('mouseleave', () => {
+                autoplayEnabled = true;
+                resetInterval();
+            });
+            
+            let touchStartX = 0;
+            let touchEndX = 0;
+            
+            slider.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) nextSlide();
+                if (touchEndX > touchStartX + 50) prevSlide();
+            });
+        }
+        
+        createDots();
+        updateDots();
+        resetInterval();
+        
+        console.log('✓ Slider ready - Images show COMPLETELY with blur background effect');
+    }
+})();
+</script>
+<!-- Slider Area End -->
+
+<!-- Services Start -->
+ <div class="rs-search-courses">
+    <div class="container">
+        <div class="search-wrapper" style="max-width: 600px; margin: 0 auto;">
+            <input 
+                type="text" 
+                id="liveSearchInput" 
+                class="global-search-input" 
+                placeholder="Start typing to search anything on this page..." 
+                aria-label="Search entire page content"
+                style="width: 100%; padding: 14px 18px; font-size: 16px; border: 1px solid #ddd; border-radius: 4px; background: #fff; outline: none; transition: all 0.2s; box-sizing: border-box;"
+                onfocus="this.style.borderColor='#007bff'; this.style.boxShadow='0 0 0 3px rgba(0,123,255,0.1)'"
+                onblur="this.style.borderColor='#ddd'; this.style.boxShadow='none'"
+            >
+        </div>
+    </div>
+</div>
+
+<script>
+    const searchInput = document.getElementById('liveSearchInput');
+    let debounceTimer;
+
+    // Function to clear all highlights
+    function clearHighlights() {
+        const highlighted = document.querySelectorAll('.search-highlight');
+        highlighted.forEach(el => {
+            const parent = el.parentNode;
+            parent.replaceChild(document.createTextNode(el.textContent), el);
+            parent.normalize();
+        });
+    }
+
+    // Function to highlight text in the page
+    function highlightText(searchTerm) {
+        if (!searchTerm || searchTerm.trim() === '') {
+            clearHighlights();
+            return;
+        }
+
+        clearHighlights();
+
+        const walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            {
+                acceptNode: function(node) {
+                    if (node.parentElement.tagName === 'SCRIPT' || 
+                        node.parentElement.tagName === 'STYLE' ||
+                        node.parentElement.classList?.contains('search-highlight') ||
+                        node.parentElement.id === 'liveSearchInput') {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            }
+        );
+
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+        const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+        
+        textNodes.forEach(node => {
+            const text = node.nodeValue;
+            if (regex.test(text)) {
+                const span = document.createElement('span');
+                span.className = 'search-highlight';
+                span.innerHTML = text.replace(regex, '<mark style="background:#ff9800; color:#000; padding: 2px 0; border-radius: 3px; font-weight: normal;">$1</mark>');
+                node.parentNode.replaceChild(span, node);
+            }
+        });
+
+        // Scroll to first match (only on first match of this search)
+        const firstMatch = document.querySelector('mark');
+        if (firstMatch && !window._scrolledToMatch) {
+            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            window._scrolledToMatch = true;
+            setTimeout(() => { window._scrolledToMatch = false; }, 500);
+        }
+    }
+
+    // Live search with debouncing for better performance
+    searchInput.addEventListener('input', function(e) {
+        clearTimeout(debounceTimer);
+        const searchTerm = e.target.value.trim();
+        
+        debounceTimer = setTimeout(() => {
+            highlightText(searchTerm);
+        }, 300); // 300ms delay for smooth typing
+    });
+
+    // Clear highlights when input is cleared
+    searchInput.addEventListener('keyup', function(e) {
+        if (e.target.value === '') {
+            clearHighlights();
+        }
+    });
+</script>
+
+<!-- Services End -->
+<section id="rs-courses-2" class="rs-courses-2 sec-spacer">
+    <div class="container">
+		<div><br></div>
+       <div class="row">
+		 <div class="sec-title-2">
+            <h2 class="mb-30">28 Human needs</h2>      
+           
+        </div>
+	   </div>
+        
+        <!-- Filter Buttons -->
+        <div class="gridFilter">
+            <button class="active" data-filter="*">ALL SECTORS</button>
+            <button data-filter=".social">SOCIAL INFRASTRUCTURE</button>
+            <button data-filter=".economic">ECONOMIC & FINANCE</button>
+            <button data-filter=".governance">GOVERNANCE & SECURITY</button>
+            <button data-filter=".infrastructure">PHYSICAL INFRASTRUCTURE</button>
+            <button data-filter=".human">HUMAN DEVELOPMENT</button>
+        </div>
+        
+        <div class="row grid">
+            <!-- SECTOR 1: SOCIAL INFRASTRUCTURE -->
+            
+            <!-- 1. Shopping -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-shopping-cart"></i>
+                        <a class="image-link" href="http://localhost:3004" target="_blank" title="Launch Shopping VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3004" target="_blank">Shopping</a></h4>
+                        <div class="course-desc">
+                            <p>Virtual marketplace with immersive retail experiences and digital commerce.</p>
+                        </div>
+                        <a href="http://localhost:3004" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 2. Healthcare -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-hospital-o"></i>
+                        <a class="image-link" href="http://localhost:3005" target="_blank" title="Launch Healthcare VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3005" target="_blank">Health Care</a></h4>
+                        <div class="course-desc">
+                            <p>Telemedicine, virtual consultations, and digital health management systems.</p>
+                        </div>
+                        <a href="http://localhost:3005" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 3. Elderly Care -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-users"></i>
+                        <a class="image-link" href="http://localhost:3006" target="_blank" title="Launch Elderly Care VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3006" target="_blank">Elderly Care</a></h4>
+                        <div class="course-desc">
+                            <p>Senior support services, assisted living, and geriatric care management.</p>
+                        </div>
+                        <a href="http://localhost:3006" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 4. Community Development -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-building-o"></i>
+                        <a class="image-link" href="http://localhost:3012" target="_blank" title="Launch Community Development VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3012" target="_blank">Community Development</a></h4>
+                        <div class="course-desc">
+                            <p>Neighborhood planning, social programs, and community engagement.</p>
+                        </div>
+                        <a href="http://localhost:3012" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 5. Gender Equality -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-venus-mars"></i>
+                        <a class="image-link" href="http://localhost:3017" target="_blank" title="Launch Gender Equality VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3017" target="_blank">Gender Equality</a></h4>
+                        <div class="course-desc">
+                            <p>Equal rights initiatives, women empowerment, and inclusive policies.</p>
+                        </div>
+                        <a href="http://localhost:3017" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 6. Values -->
+            <div class="col-lg-4 col-md-6 grid-item social">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-heart"></i>
+                        <a class="image-link" href="http://localhost:3028" target="_blank" title="Launch Values VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Social Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3028" target="_blank">Values</a></h4>
+                        <div class="course-desc">
+                            <p>Ethical frameworks, cultural heritage, and moral education systems.</p>
+                        </div>
+                        <a href="http://localhost:3028" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- SECTOR 2: ECONOMIC & FINANCE -->
+            
+            <!-- 7. Portfolio Investment -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-line-chart"></i>
+                        <a class="image-link" href="http://localhost:3007" target="_blank" title="Launch Portfolio Investment VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3007" target="_blank">Portfolio Investment</a></h4>
+                        <div class="course-desc">
+                            <p>Asset management, stock trading, and investment strategy platforms.</p>
+                        </div>
+                        <a href="http://localhost:3007" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 8. Periodic Income -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-calendar-check-o"></i>
+                        <a class="image-link" href="http://localhost:3010" target="_blank" title="Launch Periodic Income VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3010" target="_blank">Periodic Income</a></h4>
+                        <div class="course-desc">
+                            <p>Recurring revenue systems, pensions, and annuity management.</p>
+                        </div>
+                        <a href="http://localhost:3010" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 9. Insurance -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-shield"></i>
+                        <a class="image-link" href="http://localhost:3025" target="_blank" title="Launch Insurance VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3025" target="_blank">Insurance</a></h4>
+                        <div class="course-desc">
+                            <p>Risk management, claims processing, and policy administration.</p>
+                        </div>
+                        <a href="http://localhost:3025" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 10. Banking -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-bank"></i>
+                        <a class="image-link" href="http://localhost:3026" target="_blank" title="Launch Banking VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3026" target="_blank">Banking</a></h4>
+                        <div class="course-desc">
+                            <p>Digital banking, transactions, and financial services.</p>
+                        </div>
+                        <a href="http://localhost:3026" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 11. Credit -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-credit-card"></i>
+                        <a class="image-link" href="http://localhost:3027" target="_blank" title="Launch Credit VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3027" target="_blank">Credit</a></h4>
+                        <div class="course-desc">
+                            <p>Lending systems, credit scoring, and loan management.</p>
+                        </div>
+                        <a href="http://localhost:3027" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 12. Business Empowerment -->
+            <div class="col-lg-4 col-md-6 grid-item economic">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-briefcase"></i>
+                        <a class="image-link" href="http://localhost:3011" target="_blank" title="Launch Business Empowerment VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Economic & Finance</span>
+                        <h4 class="course-title"><a href="http://localhost:3011" target="_blank">Business Empowerment</a></h4>
+                        <div class="course-desc">
+                            <p>SME support, entrepreneurship programs, and business development.</p>
+                        </div>
+                        <a href="http://localhost:3011" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- SECTOR 3: GOVERNANCE & SECURITY -->
+            
+            <!-- 13. Justice -->
+            <div class="col-lg-4 col-md-6 grid-item governance">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-gavel"></i>
+                        <a class="image-link" href="http://localhost:3008" target="_blank" title="Launch Justice VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Governance & Security</span>
+                        <h4 class="course-title"><a href="http://localhost:3008" target="_blank">Justice</a></h4>
+                        <div class="course-desc">
+                            <p>Legal systems, court management, and dispute resolution.</p>
+                        </div>
+                        <a href="http://localhost:3008" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 14. Security -->
+            <div class="col-lg-4 col-md-6 grid-item governance">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-lock"></i>
+                        <a class="image-link" href="http://localhost:3015" target="_blank" title="Launch Security VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Governance & Security</span>
+                        <h4 class="course-title"><a href="http://localhost:3015" target="_blank">Security</a></h4>
+                        <div class="course-desc">
+                            <p>Public safety, surveillance, and emergency response systems.</p>
+                        </div>
+                        <a href="http://localhost:3015" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 15. Government -->
+            <div class="col-lg-4 col-md-6 grid-item governance">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-university"></i>
+                        <a class="image-link" href="http://localhost:3021" target="_blank" title="Launch Government VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Governance & Security</span>
+                        <h4 class="course-title"><a href="http://localhost:3021" target="_blank">Government</a></h4>
+                        <div class="course-desc">
+                            <p>E-governance, public administration, and citizen services.</p>
+                        </div>
+                        <a href="http://localhost:3021" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- SECTOR 4: PHYSICAL INFRASTRUCTURE -->
+            
+            <!-- 16. Environment -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-leaf"></i>
+                        <a class="image-link" href="http://localhost:3016" target="_blank" title="Launch Environment VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3016" target="_blank">Environment</a></h4>
+                        <div class="course-desc">
+                            <p>Sustainability, conservation, and environmental management.</p>
+                        </div>
+                        <a href="http://localhost:3016" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 17. Community Infrastructure -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-building"></i>
+                        <a class="image-link" href="http://localhost:3013" target="_blank" title="Launch Community Infrastructure VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3013" target="_blank">Community Infrastructure</a></h4>
+                        <div class="course-desc">
+                            <p>Public facilities, parks, and community spaces management.</p>
+                        </div>
+                        <a href="http://localhost:3013" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 18. Transportation -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-bus"></i>
+                        <a class="image-link" href="http://localhost:3014" target="_blank" title="Launch Transportation VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3014" target="_blank">Transportation</a></h4>
+                        <div class="course-desc">
+                            <p>Logistics, public transit, and mobility solutions.</p>
+                        </div>
+                        <a href="http://localhost:3014" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 19. Private Transportation -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-car"></i>
+                        <a class="image-link" href="http://localhost:3020" target="_blank" title="Launch Private Transportation VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3020" target="_blank">Private Transportation</a></h4>
+                        <div class="course-desc">
+                            <p>Personal vehicles, ride-sharing, and private mobility.</p>
+                        </div>
+                        <a href="http://localhost:3020" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 20. Electricity -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-bolt"></i>
+                        <a class="image-link" href="http://localhost:3018" target="_blank" title="Launch Electricity VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3018" target="_blank">Electricity</a></h4>
+                        <div class="course-desc">
+                            <p>Power grid, renewable energy, and utility management.</p>
+                        </div>
+                        <a href="http://localhost:3018" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 21. Water -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-tint"></i>
+                        <a class="image-link" href="http://localhost:3022" target="_blank" title="Launch Water VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3022" target="_blank">Water</a></h4>
+                        <div class="course-desc">
+                            <p>Water supply, sanitation, and resource management.</p>
+                        </div>
+                        <a href="http://localhost:3022" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 22. Building Construction -->
+            <div class="col-lg-4 col-md-6 grid-item infrastructure">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-home"></i>
+                        <a class="image-link" href="http://localhost:3023" target="_blank" title="Launch Building Construction VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Physical Infrastructure</span>
+                        <h4 class="course-title"><a href="http://localhost:3023" target="_blank">Building Construction</a></h4>
+                        <div class="course-desc">
+                            <p>Architecture, construction management, and urban development.</p>
+                        </div>
+                        <a href="http://localhost:3023" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- SECTOR 5: HUMAN DEVELOPMENT -->
+            
+            <!-- 23. Education Capital -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-graduation-cap"></i>
+                        <a class="image-link" href="http://localhost:3009" target="_blank" title="Launch Education Capital VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3009" target="_blank">Education Capital</a></h4>
+                        <div class="course-desc">
+                            <p>Educational funding, scholarships, and learning investments.</p>
+                        </div>
+                        <a href="http://localhost:3009" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 24. Food -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-cutlery"></i>
+                        <a class="image-link" href="http://localhost:3011" target="_blank" title="Launch Food VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3011" target="_blank">Food</a></h4>
+                        <div class="course-desc">
+                            <p>Food security, agriculture, and nutrition programs.</p>
+                        </div>
+                        <a href="http://localhost:3011" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 25. Education -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-book"></i>
+                        <a class="image-link" href="http://localhost:3012" target="_blank" title="Launch Education VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3012" target="_blank">Education</a></h4>
+                        <div class="course-desc">
+                            <p>Learning management, curriculum, and educational resources.</p>
+                        </div>
+                        <a href="http://localhost:3012" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 26. Emergency Relief -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-ambulance"></i>
+                        <a class="image-link" href="http://localhost:3019" target="_blank" title="Launch Emergency Relief VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3019" target="_blank">Emergency Relief</a></h4>
+                        <div class="course-desc">
+                            <p>Disaster response, humanitarian aid, and crisis management.</p>
+                        </div>
+                        <a href="http://localhost:3019" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 27. Information Technology -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-cloud"></i>
+                        <a class="image-link" href="http://localhost:3020" target="_blank" title="Launch Information Technology VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3020" target="_blank">Information Technology</a></h4>
+                        <div class="course-desc">
+                            <p>Digital infrastructure, software development, and IT services.</p>
+                        </div>
+                        <a href="http://localhost:3020" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+            
+            <!-- 28. Hospital and Leisure -->
+            <div class="col-lg-4 col-md-6 grid-item human">
+                <div class="cource-item vr-card">
+                    <div class="cource-img vr-icon">
+                        <i class="fa fa-bed"></i>
+                        <a class="image-link" href="http://localhost:3024" target="_blank" title="Launch Hospital and Leisure VR">
+                            <i class="fa fa-vr-cardboard"></i>
+                        </a>
+                    </div>
+                    <div class="course-body">
+                        <span class="course-category">Human Development</span>
+                        <h4 class="course-title"><a href="http://localhost:3024" target="_blank">Hospital and Leisure</a></h4>
+                        <div class="course-desc">
+                            <p>Healthcare facilities, recreation, and wellness services.</p>
+                        </div>
+                        <a href="http://localhost:3024" target="_blank" class="cource-btn">Enter VR Space <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>						
+            </div>
+        </div>
+    </div>
+</section>
+
+<<style>
+    /* ============================================
+       PROFESSIONAL VR ECOSYSTEM - CLEAN WHITE BACKGROUND
+       Single Color Scheme: #2563EB (Modern Blue)
+       Inspired by MiroTalk Design Language
+    ============================================ */
+    
+    /* Main Section - Pure White Background */
+    #rs-courses-2 {
+        position: relative;
+        width: 100%;
+        background: #ffffff;
+        padding: 80px 0;
+        overflow: hidden;
+    }
+    
+    /* Subtle animated lighting effect - very refined */
+    #rs-courses-2::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.02) 0%, transparent 60%),
+                    radial-gradient(circle at 85% 70%, rgba(37, 99, 235, 0.015) 0%, transparent 60%);
+        animation: subtlePulse 8s ease-in-out infinite;
+        z-index: 0;
+    }
+    
+    @keyframes subtlePulse {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 1; }
+    }
+    
+    /* Section Title */
+    .sec-title-2 {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .sec-title-2 h2 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #1a1a2e;
+        letter-spacing: -0.5px;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 0;
+    }
+    
+    .sec-title-2 h2::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #2563EB;
+        border-radius: 3px;
+    }
+    
+    .view-more {
+        margin-top: 25px;
+    }
+    
+    .view-more a {
+        color: #2563EB;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+    
+    .view-more a:hover {
+        gap: 10px;
+        color: #1d4ed8;
+    }
+    
+    /* Filter Buttons - Clean & Professional */
+    .gridFilter {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .gridFilter button {
+        background: transparent;
+        border: 1px solid #e2e8f0;
+        padding: 8px 24px;
+        margin: 5px 6px;
+        border-radius: 40px;
+        font-weight: 500;
+        font-size: 13px;
+        transition: all 0.25s ease;
+        cursor: pointer;
+        color: #4a5568;
+    }
+    
+    .gridFilter button.active,
+    .gridFilter button:hover {
+        background: #2563EB;
+        border-color: #2563EB;
+        color: #ffffff;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    
+    /* VR Card - Professional, Clean, One Color */
+    .vr-card {
+        transition: all 0.35s cubic-bezier(0.2, 0, 0, 1);
+        background: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        position: relative;
+        border: 1px solid #eef2f6;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+    
+    .vr-card:hover {
+        transform: translateY(-6px);
+        border-color: #2563EB;
+        box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.15);
+    }
+    
+    /* Icon Section - Single Color */
+    .vr-icon {
+    background: linear-gradient(135deg, #062466 0%, #051d44 25%, #1D4ED8 50%, #030811 75%, #3B82F6 100%);
+    background-size: 200% 200%;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    transition: all 0.3s;
+    animation: vrGradientShift 4s ease infinite, vrFloat 3s ease-in-out infinite;
+}
+
+/* Animated gradient shift for VR effect */
+@keyframes vrGradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Floating animation for VR movement */
+@keyframes vrFloat {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Hover effect - enhanced VR movement */
+.vr-card:hover .vr-icon {
+    animation: vrGradientShift 2s ease infinite, vrPulse 0.6s ease-in-out;
+    background-size: 200% 200%;
+}
+
+@keyframes vrPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Icon 3D rotation on hover */
+.vr-icon i {
+    font-size: 56px;
+    color: #ffffff;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    animation: vrIconGlow 3s ease-in-out infinite;
+}
+
+.vr-card:hover .vr-icon i {
+    transform: rotateY(180deg) scale(1.1);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes vrIconGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.6));
+    }
+}
+
+/* Ripple effect behind icon */
+.vr-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: vrRipple 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes vrRipple {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Subtle rotation for the entire card icon area */
+.vr-card:hover .vr-icon {
+    animation: vrGradientShift 2s ease infinite, vrCardboardTilt 0.4s ease-out forwards;
+}
+
+@keyframes vrCardboardTilt {
+    0% {
+        transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(500px) rotateX(2deg) rotateY(4deg);
+    }
+}
+
+/* Optional: Remove the tilt on mouse leave for smoothness */
+.vr-card .vr-icon {
+    transition: transform 0.3s ease;
+}
+    
+    .vr-card:hover .vr-icon {
+        background: #1F3A93;
+    }
+    
+    .vr-icon i {
+        font-size: 56px;
+        color: #ffffff;
+        transition: transform 0.3s;
+    }
+    
+    .vr-card:hover .vr-icon i {
+        transform: scale(1.02);
+    }
+    
+    /* VR Icon Link (VR Cardboard Icon) */
+    .vr-icon .image-link {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s;
+        backdrop-filter: blur(4px);
+    }
+    
+    .vr-icon .image-link:hover {
+        background: #ffffff;
+        transform: scale(1.05);
+    }
+    
+    .vr-icon .image-link i {
+        font-size: 18px;
+        margin: 0;
+        color: #1F3A93;;
+    }
+    
+    .vr-icon .image-link:hover i {
+        color: #1F3A93;;
+    }
+    
+    /* Course Body */
+    .course-body {
+        padding: 24px;
+        background: #ffffff;
+    }
+    
+    .course-category {
+        display: inline-block;
+        padding: 4px 14px;
+        background: #eff6ff;
+        color: #1F3A93;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 14px;
+        letter-spacing: 0.3px;
+    }
+    
+    .course-title {
+        margin-bottom: 10px;
+    }
+    
+    .course-title a {
+        font-size: 19px;
+        font-weight: 600;
+        color: #1e293b;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    
+    .course-title a:hover {
+        color: #2563EB;
+    }
+    
+    .course-desc p {
+        color: #64748b;
+        line-height: 1.55;
+        margin: 12px 0 20px;
+        font-size: 14px;
+    }
+    
+    /* Enter VR Space Button - Single Color */
+    .cource-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 20px;
+        background: transparent;
+        color: #2563EB;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 13px;
+        transition: all 0.25s;
+        border: 1px solid #e2e8f0;
+    }
+    
+    .cource-btn i {
+        font-size: 12px;
+        transition: transform 0.2s;
+    }
+    
+    .cource-btn:hover {
+        background: #1F3A93;
+        border-color: #1F3A93;
+        color: #ffffff;
+        gap: 10px;
+    }
+    
+    .cource-btn:hover i {
+        transform: translateX(2px);
+    }
+    
+    /* Lightning streak effect on hover - very subtle */
+    .vr-card {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .vr-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.04), transparent);
+        transition: left 0s;
+        pointer-events: none;
+        z-index: 1;
+    }
+    
+    .vr-card:hover::after {
+        left: 100%;
+        transition: left 0.6s ease-out;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+        #rs-courses-2 { padding: 60px 0; }
+        .sec-title-2 h2 { font-size: 34px; }
+        .gridFilter button { padding: 6px 18px; font-size: 12px; }
+    }
+    
+    @media (max-width: 768px) {
+        #rs-courses-2 { padding: 40px 0; }
+        .sec-title-2 h2 { font-size: 28px; }
+        .vr-icon i { font-size: 42px; }
+        .vr-icon { padding: 30px 20px; }
+        .course-body { padding: 20px; }
+        .course-title a { font-size: 18px; }
+        .gridFilter button { padding: 5px 14px; margin: 3px 4px; font-size: 11px; }
+    }
+    
+    /* Grid Layout */
+    .row.grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .col-lg-4 {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+        padding: 0 15px;
+    }
+    
+    @media (max-width: 992px) {
+        .col-lg-4 { flex: 0 0 50%; max-width: 50%; }
+    }
+    
+    @media (max-width: 768px) {
+        .col-lg-4, .col-md-6 { flex: 0 0 100%; max-width: 100%; }
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .mb-30 {
+        margin-bottom: 30px;
+    }
+    
+    .sec-spacer {
+        padding: 80px 0;
+    }
+</style>>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize Isotope with smooth transitions
+        var $grid = $('.grid').isotope({
+            itemSelector: '.grid-item',
+            layoutMode: 'fitRows',
+            transitionDuration: '0.4s',
+            stagger: 30
+        });
+        
+        // Filter buttons with smooth active state
+        $('.gridFilter button').on('click', function() {
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+            $('.gridFilter button').removeClass('active');
+            $(this).addClass('active');
+        });
+        
+        // Animate cards on filter change
+        $grid.on('arrangeComplete', function() {
+            $('.vr-card').css('animation', 'fadeInUp 0.5s ease');
+            setTimeout(function() {
+                $('.vr-card').css('animation', '');
+            }, 500);
+        });
+    });
+    
+    // Add subtle fade-in animation
+    var style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .vr-card {
+            animation: fadeInUp 0.5s ease;
+        }
+    `;
+    document.head.appendChild(style);
+</script>
+
+
+
+<!-- About Us Start -->
+<div id="rs-video-advanced">
+    <div id="rs-video" class="rs-video">
+        <div class="vr-dynamic-bg"></div>
+        <div class="lightning-overlay">
+            <div class="lightning-bolt bolt1"></div>
+            <div class="lightning-bolt bolt2"></div>
+            <div class="lightning-bolt bolt3"></div>
+            <div class="lightning-bolt bolt4"></div>
+            <div class="lightning-bolt bolt5"></div>
+            <div class="lightning-bolt bolt6"></div>
+        </div>
+        <div class="vr-scan-line"></div>
+
+        <div class="container">
+            <div class="video-content">
+                <a class="popup-vimeo" href="javascript:void(0);" title="Immersive  Reality Tour">
+                    <i class="fa fa-play"></i>
+                </a>
+                <span>✦ REDIRECTMALL ✦</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Animated Black Modal Popup -->
+<div id="vr-video-modal" class="vr-modal">
+    <div class="vr-modal-overlay"></div>
+    <div class="vr-modal-container">
+        <div class="vr-modal-content">
+            <div class="vr-modal-header">
+                <h2>VIRTUAL REALITY EXPERIENCE</h2>
+                <div class="vr-modal-close-wrapper">
+                    <span class="vr-modal-close">&times;</span>
+                </div>
+            </div>
+            <div class="vr-modal-body">
+                <div class="video-wrapper">
+                    <iframe id="vimeo-player" src="https://player.vimeo.com/video/1118159726?autoplay=0&loop=0&title=0&byline=0&portrait=0&badge=0&color=00ffff&background=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; vr" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ALL STYLES SCOPED UNDER #rs-video-advanced */
+    #rs-video-advanced .rs-video {
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        margin: 2rem auto;
+        border-radius: 48px;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        overflow: hidden;
+        box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 2px rgba(0, 255, 255, 0.2) inset, 0 0 0 4px rgba(255, 0, 255, 0.1) inset;
+        transition: transform 0.3s ease, box-shadow 0.4s ease;
+        backdrop-filter: blur(0px);
+        cursor: pointer;
+    }
+
+    #rs-video-advanced .rs-video::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle at 30% 40%, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.1), transparent 70%);
+        animation: rs-rotateGlow 18s infinite linear;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.6;
+    }
+
+    #rs-video-advanced .rs-video::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(100deg, transparent, transparent 45%, rgba(0, 255, 255, 0.25) 48%, rgba(255, 255, 0, 0.5) 50%, rgba(0, 255, 255, 0.25) 52%, transparent 55%);
+        background-size: 200% 200%;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        animation: rs-lightningFlash 0.28s cubic-bezier(0.8, 0, 0.2, 1) infinite alternate;
+        z-index: 0;
+        opacity: 0.45;
+        border-radius: inherit;
+    }
+
+    #rs-video-advanced .vr-dynamic-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(125deg, rgba(10, 10, 30, 0.6), rgba(20, 30, 70, 0.5), rgba(80, 40, 120, 0.4), rgba(0, 200, 255, 0.2));
+        background-size: 300% 300%;
+        animation: rs-vrGradientFlow 8s ease infinite alternate;
+        pointer-events: none;
+        z-index: 0;
+        border-radius: inherit;
+        mix-blend-mode: color-dodge;
+    }
+
+    #rs-video-advanced .lightning-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        border-radius: 48px;
+        overflow: hidden;
+    }
+
+    #rs-video-advanced .lightning-bolt {
+        position: absolute;
+        background: radial-gradient(ellipse at center, rgba(210, 240, 255, 0.95), rgba(0, 210, 255, 0.4));
+        filter: blur(3px);
+        opacity: 0;
+        transform: rotate(15deg);
+        animation: rs-boltStrike 2.4s infinite ease-in-out;
+        border-radius: 20px;
+    }
+
+    #rs-video-advanced .bolt1 { top: 15%; left: 10%; width: 120px; height: 4px; animation-delay: 0s; background: linear-gradient(90deg, cyan, magenta, cyan); box-shadow: 0 0 12px cyan; }
+    #rs-video-advanced .bolt2 { bottom: 20%; right: 12%; width: 180px; height: 5px; animation-delay: 0.8s; background: linear-gradient(90deg, #00ffff, #ff44ff, cyan); }
+    #rs-video-advanced .bolt3 { top: 45%; left: 75%; width: 140px; height: 3px; animation-delay: 0.3s; background: linear-gradient(90deg, yellow, cyan, white); }
+    #rs-video-advanced .bolt4 { top: 70%; left: 20%; width: 100px; height: 4px; animation-delay: 1.2s; background: linear-gradient(90deg, #ff66cc, cyan, #aaffff); }
+    #rs-video-advanced .bolt5 { top: 10%; right: 25%; width: 200px; height: 5px; animation-delay: 0.5s; background: linear-gradient(90deg, cyan, magenta, #00e0ff); }
+    #rs-video-advanced .bolt6 { bottom: 10%; left: 40%; width: 150px; height: 3px; animation-delay: 1.7s; background: linear-gradient(90deg, #ffcc44, cyan, #88ffff); }
+
+    #rs-video-advanced .vr-scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(0deg, rgba(0, 255, 255, 0) 0px, rgba(0, 255, 255, 0) 4px, rgba(0, 255, 255, 0.12) 5px, rgba(255, 0, 255, 0.05) 6px, rgba(0, 255, 255, 0) 8px);
+        pointer-events: none;
+        z-index: 2;
+        border-radius: inherit;
+        animation: rs-scanMove 8s linear infinite;
+    }
+
+    #rs-video-advanced .container {
+        position: relative;
+        z-index: 10;
+        padding: 5rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(2px);
+    }
+
+    #rs-video-advanced .video-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    #rs-video-advanced .popup-vimeo {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 140px;
+        height: 140px;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(12px);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: 0.3s ease;
+        position: relative;
+        border: 2px solid rgba(0, 255, 255, 0.7);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3), inset 0 0 20px rgba(255,255,200,0.2);
+        animation: rs-floatPulse 2.2s infinite alternate ease-in-out;
+        cursor: pointer;
+    }
+
+    #rs-video-advanced .popup-vimeo i {
+        font-size: 58px;
+        color: white;
+        text-shadow: 0 0 15px cyan, 0 0 30px magenta, 0 0 45px #0ff;
+        transition: 0.2s;
+        margin-left: 8px;
+    }
+
+    #rs-video-advanced .popup-vimeo:hover {
+        transform: scale(1.08) rotate(2deg);
+        border-color: #ff44ff;
+        box-shadow: 0 0 45px rgba(255, 68, 255, 0.7), 0 0 80px rgba(0, 255, 255, 0.9);
+        background: rgba(20, 20, 40, 0.7);
+    }
+
+    #rs-video-advanced .popup-vimeo:hover i {
+        text-shadow: 0 0 30px white, 0 0 50px #ff00cc, 0 0 70px cyan;
+        transform: scale(1.05);
+    }
+
+    #rs-video-advanced .video-content span {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        background: linear-gradient(120deg, #aaffff, #ff66ff, #00ffff, #ffaa44);
+        background-size: 300% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: rs-textShift 5s linear infinite;
+        text-shadow: 0 0 8px rgba(0,255,255,0.6);
+        font-family: 'Inter', monospace;
+        backdrop-filter: blur(4px);
+        padding: 0.5rem 1.2rem;
+        border-radius: 60px;
+        display: inline-block;
+    }
+
+    #rs-video-advanced .rs-video:hover .lightning-bolt {
+        animation-duration: 0.8s;
+        opacity: 0.95;
+    }
+
+    #rs-video-advanced .rs-video:hover::after {
+        animation: rs-lightningFlash 0.12s infinite alternate;
+        opacity: 0.85;
+    }
+
+    #rs-video-advanced .rs-video:hover {
+        box-shadow: 0 30px 55px rgba(0, 255, 255, 0.3), 0 0 0 3px rgba(0, 255, 255, 0.5) inset;
+        transform: scale(1.01);
+    }
+
+    /* ANIMATED BLACK MODAL POPUP */
+    .vr-modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .vr-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+
+    .vr-modal-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+        transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+    }
+
+    .vr-modal.show {
+        display: block;
+    }
+
+    .vr-modal.show .vr-modal-overlay {
+        opacity: 0.96;
+    }
+
+    .vr-modal.show .vr-modal-container {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+    .vr-modal-content {
+        position: relative;
+        background: linear-gradient(135deg, #0a0a0a 0%, #0d0d1a 50%, #0a0a15 100%);
+        margin: 0 auto;
+        padding: 0;
+        width: 85%;
+        max-width: 1100px;
+        border-radius: 32px;
+        box-shadow: 0 0 80px rgba(0, 255, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.3), inset 0 1px 0 rgba(0, 255, 255, 0.2);
+        border: 2px solid rgba(0, 255, 255, 0.7);
+        overflow: hidden;
+    }
+
+    .vr-modal-header {
+        padding: 1rem 2rem;
+        background: rgba(0, 0, 0, 0.6);
+        border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .vr-modal-header h2 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        background: linear-gradient(120deg, #00ffff, #ff66ff, #00ffff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: 3px;
+        font-family: 'Inter', monospace;
+        animation: headerGlow 3s ease infinite;
+    }
+
+    @keyframes headerGlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .vr-modal-close-wrapper {
+        cursor: pointer;
+    }
+
+    .vr-modal-close {
+        color: #00ffff;
+        font-size: 42px;
+        font-weight: bold;
+        transition: 0.2s;
+        line-height: 1;
+        display: inline-block;
+        text-shadow: 0 0 10px cyan;
+    }
+
+    .vr-modal-close:hover {
+        color: #ff44ff;
+        transform: rotate(90deg) scale(1.2);
+        text-shadow: 0 0 20px magenta;
+        display: inline-block;
+    }
+
+    .vr-modal-body {
+        padding: 2rem;
+        background: rgba(0, 0, 0, 0.4);
+    }
+
+    .video-wrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 0 50px rgba(0, 255, 255, 0.3), inset 0 0 20px rgba(0,255,255,0.1);
+    }
+
+    .video-wrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        border: none;
+    }
+
+    /* ANIMATIONS */
+    @keyframes rs-rotateGlow {
+        0% { transform: rotate(0deg); opacity: 0.4; }
+        50% { transform: rotate(10deg); opacity: 0.7; }
+        100% { transform: rotate(360deg); opacity: 0.4; }
+    }
+    @keyframes rs-lightningFlash {
+        0% { opacity: 0.15; background-position: 0% 0%; }
+        25% { opacity: 0.75; background-position: 15% 5%; }
+        50% { opacity: 0.35; background-position: 30% 10%; }
+        75% { opacity: 0.85; background-position: 45% 5%; }
+        100% { opacity: 0.2; background-position: 100% 0%; }
+    }
+    @keyframes rs-boltStrike {
+        0% { opacity: 0; transform: scaleX(0.3) translateX(-20px); filter: blur(8px); }
+        15% { opacity: 1; transform: scaleX(1) translateX(5px); filter: blur(2px); box-shadow: 0 0 20px cyan, 0 0 30px magenta; }
+        30% { opacity: 0.8; transform: scaleX(1.1) translateX(10px); }
+        70% { opacity: 0.3; transform: scaleX(0.9) translateX(-5px); }
+        100% { opacity: 0; transform: scaleX(0.2) translateX(-40px); filter: blur(12px); }
+    }
+    @keyframes rs-vrGradientFlow {
+        0% { background-position: 0% 30%; opacity: 0.5; }
+        50% { background-position: 100% 70%; opacity: 0.85; }
+        100% { background-position: 0% 30%; opacity: 0.5; }
+    }
+    @keyframes rs-floatPulse {
+        0% { transform: translateY(0px) scale(1); box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 0, 255, 0.3); }
+        100% { transform: translateY(-12px) scale(1.02); box-shadow: 0 0 35px rgba(0, 255, 255, 0.9), 0 0 55px rgba(255, 0, 255, 0.6); }
+    }
+    @keyframes rs-textShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    @keyframes rs-scanMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 0 100%; }
+    }
+    @keyframes rs-fadeOutSpark {
+        0% { opacity: 0.9; transform: scale(1); }
+        100% { opacity: 0; transform: scale(2.5); }
+    }
+
+    @media (max-width: 768px) {
+        #rs-video-advanced .popup-vimeo { width: 100px; height: 100px; }
+        #rs-video-advanced .popup-vimeo i { font-size: 42px; }
+        #rs-video-advanced .video-content span { font-size: 1.2rem; letter-spacing: 3px; }
+        #rs-video-advanced .container { padding: 3rem 1.5rem; }
+        #rs-video-advanced .rs-video { border-radius: 32px; }
+        .vr-modal-content { width: 95%; }
+        .vr-modal-header h2 { font-size: 0.9rem; letter-spacing: 2px; }
+        .vr-modal-close { font-size: 36px; }
+        .vr-modal-body { padding: 1rem; }
+    }
+</style>
+
+<script>
+    (function() {
+        // Get modal elements
+        var modal = document.getElementById('vr-video-modal');
+        var playBtn = document.querySelector('#rs-video-advanced .popup-vimeo');
+        var closeBtn = document.querySelector('.vr-modal-close');
+        var iframe = document.getElementById('vimeo-player');
+        var originalSrc = iframe ? iframe.src : '';
+
+        // Function to open modal with animation and auto-play
+        function openModal() {
+            if (modal) {
+                // Add show class to trigger animations
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                
+                // Add lightning flash effect on the video section
+                var videoDiv = document.querySelector('#rs-video-advanced .rs-video');
+                if (videoDiv) {
+                    videoDiv.style.transition = 'all 0.2s';
+                    videoDiv.style.boxShadow = '0 0 70px rgba(0, 255, 255, 0.9), 0 0 120px rgba(255, 0, 255, 0.7)';
+                    setTimeout(function() { 
+                        if(videoDiv) videoDiv.style.boxShadow = ''; 
+                    }, 500);
+                }
+                
+                // Auto-play the video when modal opens
+                if (iframe) {
+                    // Extract video ID and build autoplay URL
+                    var videoId = '1118159726';
+                    iframe.src = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&loop=0&title=0&byline=0&portrait=0&badge=0&color=00ffff&background=0';
+                }
+            }
+        }
+
+        // Function to close modal with animation and stop video
+        function closeModal() {
+            if (modal) {
+                // Remove show class to trigger closing animations
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                
+                // Stop video when closing (reset iframe src)
+                if (iframe) {
+                    iframe.src = 'https://player.vimeo.com/video/1118159726?autoplay=0&loop=0&title=0&byline=0&portrait=0&badge=0&color=00ffff&background=0';
+                }
+            }
+        }
+
+        // Event listeners
+        if (playBtn) {
+            playBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeModal);
+        }
+
+        // Close modal when clicking outside the modal container
+        window.addEventListener('click', function(event) {
+            if (modal && modal.classList.contains('show')) {
+                // Check if click is on the overlay (not on content)
+                if (event.target === modal || event.target.classList.contains('vr-modal-overlay')) {
+                    closeModal();
+                }
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Lightning randomizer for bolts
+        var bolts = document.querySelectorAll('#rs-video-advanced .lightning-bolt');
+        function randomizeBolts() {
+            bolts.forEach(function(bolt) {
+                var randomDur = (Math.random() * 1.8 + 0.8).toFixed(2);
+                bolt.style.animationDuration = randomDur + 's';
+            });
+        }
+        if (bolts.length) {
+            setInterval(randomizeBolts, 4000);
+            randomizeBolts();
+        }
+
+        // Spark effect on mouse move
+        var rsVideo = document.querySelector('#rs-video-advanced .rs-video');
+        if (rsVideo) {
+            rsVideo.addEventListener('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var spark = document.createElement('div');
+                spark.style.position = 'absolute';
+                spark.style.left = x + 'px';
+                spark.style.top = y + 'px';
+                spark.style.width = '8px';
+                spark.style.height = '8px';
+                spark.style.background = 'radial-gradient(circle, cyan, magenta)';
+                spark.style.borderRadius = '50%';
+                spark.style.filter = 'blur(3px)';
+                spark.style.pointerEvents = 'none';
+                spark.style.zIndex = '999';
+                spark.style.opacity = '0.8';
+                spark.style.boxShadow = '0 0 15px cyan, 0 0 25px magenta';
+                spark.style.animation = 'rs-fadeOutSpark 0.5s forwards';
+                this.appendChild(spark);
+                setTimeout(function() { if(spark && spark.remove) spark.remove(); }, 500);
+            });
+
+            // 3D tilt effect
+            rsVideo.addEventListener('mousemove', function(ev) {
+                var rect = this.getBoundingClientRect();
+                var centerX = rect.left + rect.width / 2;
+                var centerY = rect.top + rect.height / 2;
+                var deltaX = (ev.clientX - centerX) / 30;
+                var deltaY = (ev.clientY - centerY) / 30;
+                this.style.transform = 'perspective(1200px) rotateY(' + (deltaX * 0.8) + 'deg) rotateX(' + (-deltaY * 0.6) + 'deg) scale(1.01)';
+            });
+            rsVideo.addEventListener('mouseleave', function() {
+                this.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1)';
+                this.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
+                var self = this;
+                setTimeout(function() { if(self) self.style.transition = ''; }, 400);
+            });
+        }
+    })();
+</script>
+<!-- About Us End -->
+ <div id="rs-partner" class="rs-partner pt-70 pb-70">
+            <div class="container">
+				<div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="80" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="4" data-ipad-device-nav="false" data-ipad-device-dots="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
+                    <div class="partner-item">
+                        <a href="#"><img src="img/s1.jpg" alt="Partner Image"></a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="#"><img src="img/s2.jpg" alt="Partner Image"></a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="#"><img src="img/s3.jpg" alt="Partner Image"></a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="#"><img src="img/s4.jpg" alt="Partner Image"></a>
+                    </div>
+                    <div class="partner-item">
+                        <a href="#"><img src="img/s5.jpg" alt="Partner Image"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Courses, Counter, Events, Team, Calltoaction, Latest News, Products, Testimonial, Partner sections continue... -->
