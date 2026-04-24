@@ -1,33 +1,41 @@
-<div class="rs-toolbar">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="rs-toolbar-left">
-                    <div class="welcome-message">
-                        <i class="fa fa-bank"></i>
-                        <span>Welcome to RedirectMall</span>
-                    </div>
-                </div>
+<!-- Language Popup Button - Top Right Corner Icon -->
+<div class="language-popup-container">
+    <button id="languagePopupBtn" class="language-popup-btn" title="Change Language">
+        <i class="fa fa-globe"></i>
+        <span class="language-badge">EN</span>
+    </button>
+    
+    <!-- Popup Modal -->
+    <div id="languagePopup" class="language-popup">
+        <div class="language-popup-content">
+            <div class="language-popup-header">
+                <h3><i class="fa fa-language"></i> Select Language</h3>
+                <button class="language-popup-close">&times;</button>
             </div>
-            <div class="col-md-5">
-                <div class="rs-toolbar-center">
-                    <div class="google-translate-wrapper">
-                        <i class="fa fa-language"></i>
-                        <div id="google_translate_element"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="rs-toolbar-right">
-                    <div class="toolbar-share-icon">
-                        <ul>
-                            <li><a href="#" aria-label="Facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" aria-label="Google Plus"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <a href="/login" class="apply-btn">Login</a>
+            <div class="language-popup-body">
+                <div id="google_translate_element_popup"></div>
+                <div class="language-list">
+                    <button class="lang-option" data-lang="en">🇺🇸 English</button>
+                    <button class="lang-option" data-lang="es">🇪🇸 Español</button>
+                    <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+                    <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+                    <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+                    <button class="lang-option" data-lang="pt">🇵🇹 Português</button>
+                    <button class="lang-option" data-lang="zh-CN">🇨🇳 中文</button>
+                    <button class="lang-option" data-lang="ja">🇯🇵 日本語</button>
+                    <button class="lang-option" data-lang="ko">🇰🇷 한국어</button>
+                    <button class="lang-option" data-lang="ar">🇸🇦 العربية</button>
+                    <button class="lang-option" data-lang="hi">🇮🇳 हिन्दी</button>
+                    <button class="lang-option" data-lang="ru">🇷🇺 Русский</button>
+                    <button class="lang-option" data-lang="nl">🇳🇱 Nederlands</button>
+                    <button class="lang-option" data-lang="sv">🇸🇪 Svenska</button>
+                    <button class="lang-option" data-lang="pl">🇵🇱 Polski</button>
+                    <button class="lang-option" data-lang="tr">🇹🇷 Türkçe</button>
+                    <button class="lang-option" data-lang="vi">🇻🇳 Tiếng Việt</button>
+                    <button class="lang-option" data-lang="th">🇹🇭 ไทย</button>
+                    <button class="lang-option" data-lang="ha">🇳🇬 Hausa</button>
+                    <button class="lang-option" data-lang="ig">🇳🇬 Igbo</button>
+                    <button class="lang-option" data-lang="yo">🇳🇬 Yorùbá</button>
                 </div>
             </div>
         </div>
@@ -35,189 +43,216 @@
 </div>
 
 <style>
-    /* Animated Toolbar Styles */
-    .rs-toolbar {
-        background: #DC0028;
-        background: linear-gradient(90deg, #DC0028 0%, #DC0028 25%, #b00020 50%, #DC0028 75%, #DC0028 100%);
-        background-size: 200% 100%;
-        animation: gradientShift 3s ease infinite;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        position: relative;
-        z-index: 1000;
+    /* Language Popup Button - Top Right Corner */
+    .language-popup-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
     }
     
-    /* Gradient Shifting Animation */
-    @keyframes gradientShift {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-    
-    /* Optional: Pulsing background animation */
-    @keyframes pulseColor {
-        0% {
-            background-color: #DC0028;
-            box-shadow: 0 0 0 0 rgba(220, 0, 40, 0.5);
-        }
-        50% {
-            background-color: #b00020;
-            box-shadow: 0 0 0 5px rgba(220, 0, 40, 0);
-        }
-        100% {
-            background-color: #DC0028;
-            box-shadow: 0 0 0 0 rgba(220, 0, 40, 0);
-        }
-    }
-    
-    /* Alternative: Smooth pulsing animation (uncomment to use instead of gradient) */
-    /* .rs-toolbar {
-        background: #DC0028;
-        animation: pulseColor 2s ease infinite;
-    } */
-    
-    /* Shimmer effect overlay */
-    .rs-toolbar::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, 
-            transparent, 
-            rgba(255, 255, 255, 0.15), 
-            transparent);
-        animation: shimmer 2s infinite;
-        pointer-events: none;
-    }
-    
-    @keyframes shimmer {
-        0% {
-            left: -100%;
-        }
-        20% {
-            left: 100%;
-        }
-        100% {
-            left: 100%;
-        }
-    }
-    
-    .rs-toolbar-left,
-    .rs-toolbar-center,
-    .rs-toolbar-right {
+    /* Animated Popup Button */
+    .language-popup-btn {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #DC0028 0%, #b00020 100%);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        cursor: pointer;
         display: flex;
         align-items: center;
-        min-height: 48px;
-    }
-    
-    .rs-toolbar-left {
-        justify-content: flex-start;
-    }
-    
-    .rs-toolbar-center {
         justify-content: center;
-    }
-    
-    .rs-toolbar-right {
-        justify-content: flex-end;
-        gap: 20px;
-    }
-    
-    .welcome-message {
-        color: #fff;
-        font-size: 14px;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-    
-    .welcome-message i {
-        margin-right: 8px;
-        color: #fff;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-    
-    .welcome-message span {
-        color: #fff;
-        font-weight: 500;
-    }
-    
-    .toolbar-share-icon ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        gap: 15px;
-    }
-    
-    .toolbar-share-icon ul li a {
-        color: #fff;
-        font-size: 14px;
+        position: relative;
         transition: all 0.3s ease;
-        opacity: 0.9;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(220, 0, 40, 0.3);
+        animation: pulseGlow 2s ease infinite;
     }
     
-    .toolbar-share-icon ul li a:hover {
-        opacity: 1;
+    .language-popup-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(220, 0, 40, 0.5);
+        background: linear-gradient(135deg, #b00020 0%, #DC0028 100%);
+    }
+    
+    .language-popup-btn i {
         color: #fff;
-        transform: translateY(-2px) scale(1.1);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        font-size: 24px;
+        animation: globeSpin 4s linear infinite;
     }
     
-    .apply-btn {
-        background: rgba(255, 255, 255, 0.2);
+    /* Language Badge */
+    .language-badge {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        background: #fff;
+        color: #DC0028;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 5px;
+        border-radius: 12px;
+        border: 1px solid #DC0028;
+        font-family: monospace;
+    }
+    
+    /* Glow Pulse Animation */
+    @keyframes pulseGlow {
+        0% {
+            box-shadow: 0 4px 15px rgba(220, 0, 40, 0.3);
+        }
+        50% {
+            box-shadow: 0 4px 25px rgba(220, 0, 40, 0.6);
+        }
+        100% {
+            box-shadow: 0 4px 15px rgba(220, 0, 40, 0.3);
+        }
+    }
+    
+    /* Globe Spin Animation */
+    @keyframes globeSpin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    
+    /* Popup Modal */
+    .language-popup {
+        display: none;
+        position: fixed;
+        z-index: 10001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
+        animation: fadeIn 0.3s ease;
+    }
+    
+    .language-popup.show {
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    .language-popup-content {
+        position: relative;
+        background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+        margin: 5% auto;
+        padding: 0;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.3s ease;
+        overflow: hidden;
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    .language-popup-header {
+        background: linear-gradient(90deg, #DC0028 0%, #b00020 100%);
+        padding: 20px 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .language-popup-header h3 {
         color: #fff;
-        padding: 6px 20px;
-        border-radius: 25px;
-        text-decoration: none;
-        font-size: 13px;
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .language-popup-header h3 i {
+        margin-right: 10px;
+    }
+    
+    .language-popup-close {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: #fff;
+        font-size: 28px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+    
+    .language-popup-close:hover {
+        background: rgba(255, 255, 255, 0.4);
+        transform: rotate(90deg);
+    }
+    
+    .language-popup-body {
+        padding: 30px;
+        max-height: 60vh;
+        overflow-y: auto;
+    }
+    
+    /* Language List Grid */
+    .language-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+    }
+    
+    .lang-option {
+        background: #f8f9fa;
+        border: 2px solid #e9ecef;
+        padding: 12px 15px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 14px;
         font-weight: 500;
         transition: all 0.3s ease;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    
-    .apply-btn:hover {
-        background: rgba(255, 255, 255, 0.35);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        border-color: rgba(255, 255, 255, 0.5);
-    }
-    
-    /* Google Translate Wrapper */
-    .google-translate-wrapper {
+        text-align: left;
         display: flex;
         align-items: center;
         gap: 10px;
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(5px);
-        padding: 6px 16px;
-        border-radius: 40px;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
-    .google-translate-wrapper:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: translateY(-1px);
-        border-color: rgba(255, 255, 255, 0.4);
-    }
-    
-    .google-translate-wrapper i {
+    .lang-option:hover {
+        background: #DC0028;
+        border-color: #DC0028;
         color: #fff;
-        font-size: 16px;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        transform: translateX(5px);
     }
     
-    /* Google Translate Custom Styling */
+    /* Google Translate Popup Styling */
+    #google_translate_element_popup {
+        margin-bottom: 20px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        text-align: center;
+    }
+    
     .goog-te-gadget {
         font-family: inherit !important;
         font-size: 0 !important;
@@ -228,32 +263,9 @@
         background: transparent !important;
         border: none !important;
         padding: 0 !important;
-        font-size: 13px !important;
     }
     
-    .goog-te-gadget-simple .goog-te-menu-value {
-        color: #fff !important;
-        font-size: 13px !important;
-        font-weight: 400 !important;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    }
-    
-    .goog-te-gadget-simple .goog-te-menu-value span {
-        color: #fff !important;
-    }
-    
-    .goog-te-gadget-simple .goog-te-menu-value .goog-te-menu-value-arrow {
-        border-top-color: #fff !important;
-        margin-left: 6px;
-    }
-    
-    /* Hide Google Translate Branding */
-    .goog-logo-link,
-    .goog-te-gadget img {
-        display: none !important;
-    }
-    
-    /* Hide Google Translate Popup Banner */
+    /* Hide Google Translate Banner */
     .goog-te-banner-frame,
     .goog-te-balloon-frame,
     iframe.goog-te-banner-frame {
@@ -266,7 +278,6 @@
         top: -9999px !important;
     }
     
-    /* Prevent Body Shift */
     body {
         top: 0px !important;
         position: static !important;
@@ -277,32 +288,35 @@
     }
     
     /* Responsive */
-    @media (max-width: 991px) {
-        .rs-toolbar-center {
-            order: 3;
-            margin-top: 10px;
-        }
-    }
-    
     @media (max-width: 768px) {
-        .rs-toolbar .row > div {
-            text-align: center;
-            margin-bottom: 10px;
+        .language-popup-btn {
+            width: 48px;
+            height: 48px;
+            top: 10px;
+            right: 10px;
         }
         
-        .rs-toolbar-left,
-        .rs-toolbar-center,
-        .rs-toolbar-right {
-            justify-content: center;
+        .language-popup-btn i {
+            font-size: 20px;
         }
         
-        .google-translate-wrapper {
-            padding: 6px 12px;
+        .language-popup-content {
+            width: 95%;
+            margin: 15% auto;
+        }
+        
+        .language-list {
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        }
+        
+        .lang-option {
+            padding: 10px 12px;
+            font-size: 12px;
         }
     }
 </style>
 
-<!-- Google Translate Script - USING HTTPS -->
+<!-- Google Translate Script -->
 <script type="text/javascript">
     function removeGoogleTranslatePopup() {
         setTimeout(function() {
@@ -337,18 +351,54 @@
             layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
             autoDisplay: false,
             multilanguagePage: true
-        }, 'google_translate_element');
+        }, 'google_translate_element_popup');
         
         setTimeout(removeGoogleTranslatePopup, 200);
     }
     
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            removeGoogleTranslatePopup();
+    // Popup functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const popupBtn = document.getElementById('languagePopupBtn');
+        const popup = document.getElementById('languagePopup');
+        const closeBtn = document.querySelector('.language-popup-close');
+        
+        // Open popup
+        popupBtn.addEventListener('click', function() {
+            popup.classList.add('show');
         });
-    } else {
+        
+        // Close popup
+        function closePopup() {
+            popup.classList.remove('show');
+        }
+        
+        closeBtn.addEventListener('click', closePopup);
+        
+        // Close when clicking outside content
+        window.addEventListener('click', function(e) {
+            if (e.target === popup) {
+                closePopup();
+            }
+        });
+        
+        // Language options direct selection
+        const langOptions = document.querySelectorAll('.lang-option');
+        langOptions.forEach(function(option) {
+            option.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                // Trigger Google Translate
+                const select = document.querySelector('.goog-te-combo');
+                if (select) {
+                    select.value = lang;
+                    select.dispatchEvent(new Event('change'));
+                }
+                // Close popup after selection
+                setTimeout(closePopup, 500);
+            });
+        });
+        
         removeGoogleTranslatePopup();
-    }
+    });
     
     window.addEventListener('load', function() {
         removeGoogleTranslatePopup();
@@ -364,5 +414,5 @@
     });
 </script>
 
-<!-- CRITICAL: Use HTTPS instead of HTTP -->
+<!-- Google Translate API -->
 <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
