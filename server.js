@@ -106,30 +106,25 @@ app.get('/api/google-translate', (req, res) => {
 // Your home.ejs will now be served by the mainRouter
 
 // 404 handler for API - using regex pattern
-app.use(/\/api\/.*/, (req, res) => {
-    res.status(404).json({ 
-        success: false, 
-        message: `API endpoint not found: ${req.originalUrl}` 
+// 404 handler for API (keep this)
+app.use('/api', (req, res) => {
+    res.status(404).json({
+        success: false,
+        message: `API endpoint not found: ${req.originalUrl}`
     });
 });
 
-// 404 handler for pages
+// 404 handler for FRONTEND → REDIRECT TO HOME
 app.use((req, res) => {
     if (req.path.startsWith('/api/')) {
-        res.status(404).json({ success: false, message: 'API endpoint not found' });
-    } else {
-        res.status(404).send(`
-            <!DOCTYPE html>
-            <html>
-            <head><title>404 - Page Not Found</title></head>
-            <body>
-                <h1>404 - Page Not Found</h1>
-                <p>The page you are looking for does not exist.</p>
-                <a href="/">Go back to Home</a>
-            </body>
-            </html>
-        `);
+        return res.status(404).json({
+            success: false,
+            message: 'API endpoint not found'
+        });
     }
+
+    // ✅ Redirect all unknown pages to home
+    return res.redirect('/');
 });
 
 // Global error handler
